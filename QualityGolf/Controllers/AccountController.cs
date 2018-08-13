@@ -24,17 +24,20 @@ namespace QualityGolf.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
-            ILogger<AccountController> logger)
+            ILogger<AccountController> logger,
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
+            _roleManager = roleManager;
         }
 
         [TempData]
@@ -230,8 +233,54 @@ namespace QualityGolf.Controllers
                     var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
                     await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
 
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    _logger.LogInformation("User created a new account with password.");
+                    //comprobar si existe el rol administrador
+
+                    var xRol = await _roleManager.RoleExistsAsync("Administrator");
+                    if (!xRol)
+                    {
+                        var role = new IdentityRole("Administrator");
+                        var res = await _roleManager.CreateAsync(role);
+
+                        if (res.Succeeded)
+                        {
+                            await _userManager.AddToRoleAsync(user, "Administrator");
+                            await _signInManager.SignInAsync(user, isPersistent: false);
+                            _logger.LogInformation("User created a new account with password.");
+                        }
+
+                    }
+                    else
+                    {
+
+                        await _userManager.AddToRoleAsync(user, "Administrator");
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        _logger.LogInformation("User created a new account with password.");
+
+                    }
+                    
+
+                    // registro otros roles
+
+                    xRol = await _roleManager.RoleExistsAsync("Usuario");
+                    if (!xRol)
+                    {
+                        var role = new IdentityRole();
+                        role.Name = "Usuario";
+                        await _roleManager.CreateAsync(role);
+                    }
+
+
+                    xRol = await _roleManager.RoleExistsAsync("Profesor");
+                    if (!xRol)
+                    {
+                        var role = new IdentityRole();
+                        role.Name = "Profesor";
+                        await _roleManager.CreateAsync(role);
+                    }
+                   
+
+
+                    
                     return RedirectToLocal(returnUrl);
                 }
                 AddErrors(result);
