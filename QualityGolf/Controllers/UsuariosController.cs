@@ -168,9 +168,50 @@ namespace QualityGolf.Controllers
 
             return resp;
         }
-        
 
 
+        public async Task<String> DeleteUsuario(string id)
+        {
+            var resp = "";
+            try
+            {
+                var applicationUser = await _context.ApplicationUser.SingleOrDefaultAsync(m => m.Id == id);
+                _context.ApplicationUser.Remove(applicationUser);
+                await _context.SaveChangesAsync();
+                resp = "Delete";
+            }
+            catch
+            {
+                resp = "No Delete";
+            }
+            return resp;
+        }
+
+
+
+        public async Task<String> CreateUsuario( string email,string passwordHash,string selectRole, ApplicationUser applicationUser )
+        {
+            var resp = "";
+
+            applicationUser = new ApplicationUser
+            {
+                UserName = email,
+                Email = email
+            };
+            var result = await _userManager.CreateAsync(applicationUser, passwordHash);
+
+            if (result.Succeeded)
+            {
+                await _userManager.AddToRoleAsync(applicationUser, selectRole);
+                resp = "Save";
+            }
+            else
+            {
+                resp = "NoSave";
+            }
+
+            return resp;
+        }
         
 
         private bool ApplicationUserExists(string id)
