@@ -107,7 +107,7 @@ namespace QualityGolf.Controllers
 
 
         public async Task<string> EditUsuario(string id, string userName, string email, string phoneNumber,
-            int accessFailedCount, string concurrentStamp, bool emailConfirmed, bool lockoutEnabled,
+            int accessFailedCount, string concurrencyStamp, bool emailConfirmed, bool lockoutEnabled,
             DateTimeOffset lockoutEnd, string normalizedEmail, string normalizedUserName, string passwordHash,
             bool phoneNumberConfirmed, string securityStamp, bool twoFactorEneable, string selectRole, ApplicationUser applicationUser)
         {
@@ -130,7 +130,7 @@ namespace QualityGolf.Controllers
                     SecurityStamp = securityStamp,
                     TwoFactorEnabled = twoFactorEneable,
                     AccessFailedCount = accessFailedCount,
-                    ConcurrencyStamp = concurrentStamp
+                    ConcurrencyStamp = concurrencyStamp
 
 
                 };

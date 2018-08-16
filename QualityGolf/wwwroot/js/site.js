@@ -32,13 +32,13 @@ var nombre;
 var apellido;
 var dni;
 var accessFailedCount;
-var concurrencyStamp;
+var concurrentStamp;
 var lockoutEnabled;
 var lockoutEnd;
 var normalizedUserName;
 var normalizedEmail;
 var passwordHash;
-var PhoneNumberConfirmed;
+var phoneNumberConfirmed;
 var securityStamp;
 var twoFactorEneable;
 var phoneNumber;
@@ -107,13 +107,13 @@ function editarUsuario(action) {
     $.each(items, function (index, val) {
 
         accessFailedCount= val.accessFailedCount;
-        concurrencyStamp= val.concurrencyStampc;
+        concurrentStamp= val.concurrentStamp;
         lockoutEnabled= val.lockoutEnabled;
         lockoutEnd= val.lockoutEnd;
         normalizedUserName= val.normalizedUserName ;
         normalizedEmail =  val.normalizedEmail;
         passwordHash = val.passwordHash;
-        PhoneNumberConfirmed = val.PhoneNumberConfirmed;
+        phoneNumberConfirmed = val.phoneNumberConfirmed;
         securityStamp = val.securityStamp;
         twoFactorEneable = val.twoFactorEneable;
         phoneNumber = val.phoneNumber;
@@ -126,16 +126,16 @@ function editarUsuario(action) {
         type: "POST",
         url: action,
         data: {
-            id, userName, email, phoneNumber, accessFailedCount, concurrentStamp, emailConfirmed, lockoutEneable,
-            lockoutEnd, NormalizedEmail, NormalizedUserName, passwordHash, phoneNumberConfirmed, securityStamp,
+            id, userName, email, phoneNumber, accessFailedCount, concurrentStamp, emailConfirmed, lockoutEnabled,
+            lockoutEnd, normalizedEmail, normalizedUserName, passwordHash, phoneNumberConfirmed, securityStamp,
             twoFactorEneable, selectRole
         },
         success: function (response) { 
 
-            alert("hola");
+            
 
 
-            if (response === "Save") {
+            if (response == "Save") {
                 
                 window.location.href = "Usuarios";
             } else {
