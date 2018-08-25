@@ -49,6 +49,8 @@ namespace QualityGolf.Controllers
                 {
                     Id = Data.Id,
                     UserName = Data.UserName,
+                    Nombre = Data.Nombre,
+                    Apellido = Data.Apellido,
                     Email = Data.Email,
                     Role = usuarioRole[0].Text
                 } );
@@ -82,12 +84,21 @@ namespace QualityGolf.Controllers
                 NormalizedUserName = appUsuario.NormalizedUserName,
                 
                 PasswordHash = appUsuario.PasswordHash,
-                //Nombre = appUsuario.
-                //Apellido = appUsuario.
-                //Dni = appUsuario.
+                Nombre = appUsuario.Nombre,
+                Apellido = appUsuario.Apellido,
+                Dni = appUsuario.Dni,
                 PhoneNumberConfirmed = appUsuario.PhoneNumberConfirmed,
                 SecurityStamp = appUsuario.SecurityStamp,
-                TwoFactorEnabled = appUsuario.TwoFactorEnabled
+                TwoFactorEnabled = appUsuario.TwoFactorEnabled,
+                Nacionalidad = appUsuario.Nacionalidad,
+                Sexo = appUsuario.Sexo,
+                Direccion = appUsuario.Direccion,
+                Localidad = appUsuario.Localidad,
+                CodigoPostal = appUsuario.CodigoPostal,
+                TipoPlan = appUsuario.TipoPlan,
+                TipoSuscripcion = appUsuario.TipoSuscripcion,
+                CantidadClasesMes = appUsuario.CantidadClasesMes,
+                ClasesPendiente = appUsuario.ClasesPendiente
 
 
 
@@ -189,14 +200,31 @@ namespace QualityGolf.Controllers
 
 
 
-        public async Task<String> CreateUsuario( string email,string passwordHash,string selectRole, ApplicationUser applicationUser )
+        public async Task<String> CreateUsuario( string email,string passwordHash,string selectRole, string nombre, string apellido,
+            string nacionalidad, string dni, string sexo, string phoneNumber, string direccion, string localidad,
+            string codigoPostal, string tipoPlan, string tipoSuscripcion , byte cantidadClasesMes, byte clasesPendiente, ApplicationUser applicationUser )
         {
             var resp = "";
 
             applicationUser = new ApplicationUser
             {
                 UserName = email,
-                Email = email
+                Email = email,
+                Nombre = nombre,
+                Apellido = apellido,
+                Nacionalidad = nacionalidad,
+                Dni = dni,
+                Sexo = sexo,
+                PhoneNumber = phoneNumber,
+                Direccion = direccion,
+                Localidad = localidad,
+                CodigoPostal = codigoPostal,
+                TipoPlan = tipoPlan,
+                TipoSuscripcion = tipoSuscripcion,
+                CantidadClasesMes = cantidadClasesMes,
+                ClasesPendiente = clasesPendiente
+
+        
             };
             var result = await _userManager.CreateAsync(applicationUser, passwordHash);
 

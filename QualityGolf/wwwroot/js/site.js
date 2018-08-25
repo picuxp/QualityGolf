@@ -27,6 +27,7 @@ var email;
 var role;
 var selectRole;
 
+var nacionalidad;
 
 var nombre;
 var apellido;
@@ -43,6 +44,14 @@ var securityStamp;
 var twoFactorEneable;
 var phoneNumber;
 var emailConfirmed;
+var sexo;
+var direccion;
+var localidad;
+var codigoPostal;
+var tipoPlan;
+var tipoSuscripcion;
+var cantidadClasesMes;
+var clasesPendiente;
 
 
 
@@ -59,6 +68,19 @@ function mostrarUsuario(response) {
         $('input[name=Id]').val(val.id);
         $('input[name=UserName]').val(val.userName);
         $('input[name=Email]').val(val.email);
+        $('input[name=Nombre]').val(val.nombre);
+        $('input[name=Apellido]').val(val.apellido);
+        $('input[name=Nacionalidad]').val(val.nacionalidad);
+        $('input[name=Dni]').val(val.dni);
+        $('input[name=Sexo]').val(val.sexo);
+        $('input[name=PhoneNumber]').val(val.phoneNumber);
+        $('input[name=Direccion]').val(val.direccion);
+        $('input[name=Localidad]').val(val.localidad);
+        $('input[name=CodigoPostal]').val(val.codigoPostal);
+        $('input[name=TipoPLan]').val(val.tipoPLan);
+        $('input[name=TipoSuscripcion]').val(val.tipoSuscripcion);
+        $('input[name=CantidadClasesMes]').val(val.cantidadClasesMes);
+        $('input[name=ClasesPendiente]').val(val.clasesPendiente);
         document.getElementById('Select').options[0] = new Option(val.role, val.roleId);
 
         //mostrar detalles de usuario
@@ -66,7 +88,20 @@ function mostrarUsuario(response) {
         $("#dEmail").text(val.email);
         $("#dUserName").text(val.userName);
         $("#dRole").text(val.role);
-
+        $("#dNombre").text(val.nombre);
+        $("#dApellido").text(val.apellido);
+        $("#dNacionalidad").text(val.nacionalidad);
+        $("#dDni").text(val.dni);
+        $("#dSexo").text(val.sexo);
+        $("#dPhoneNumber").text(val.phoneNumber);
+        $("#dDireccion").text(val.direccion);
+        $("#dLocalidad").text(val.localidad);
+        $("#dCodigoPostal").text(val.codigoPostal);
+        $("#dTipoPlan").text(val.tipoPlan);
+        $("#dTipoSuscripcion").text(val.tipoSuscripcion);
+        $("#dCantidadClasesMes").text(val.cantidadClasesMes);
+        $("#dClasesPendiente").text(val.clasesPendiente);
+        
         //mostrar usuario que voy a eliminar
 
         $("#eUsuario").text(val.email);
@@ -181,6 +216,23 @@ function crearUsuario(action) {
     passwordHash = $('input[name=PasswordHashNuevo]')[0].value;
     role = document.getElementById('SelectNuevo');
     selectRole = role.options[role.selectedIndex].text;
+    
+    
+    nombre = $('input[name=NombreNuevo]')[0].value;
+    apellido = $('input[name=ApellidoNuevo]')[0].value;
+    nacionalidad = $('input[name=NacionalidadNuevo]')[0].value;
+    dni = $('input[name=DniNuevo]')[0].value;
+    sexo = document.getElementById('SexoNuevo').options[document.getElementById('SexoNuevo').selectedIndex].text;
+    phoneNumber = $('input[name=PhoneNumberNuevo]')[0].value;
+    direccion = $('input[name=DireccionNuevo]')[0].value;
+    localidad = $('input[name=LocalidadNuevo]')[0].value;
+    codigoPostal = $('input[name=CodigoPostalNuevo]')[0].value;
+    //tipoPlan = document.getElementById('TipoPLanNuevo');
+    tipoPlan = document.getElementById('TipoPLanNuevo').options[document.getElementById('TipoPLanNuevo').selectedIndex].text;
+    //tipoSuscripcion = document.getElementById('TipoSuscripcionNuevo');
+    tipoSuscripcion = document.getElementById('TipoSuscripcionNuevo').options[document.getElementById('TipoSuscripcionNuevo').selectedIndex].text;
+    cantidadClasesMes = 8;
+    clasesPendiente = 7;
 
     if (email == "") {
         $('#EmailNuevo').focus();
@@ -193,11 +245,13 @@ function crearUsuario(action) {
             alert("ingrese un password");
         } else {
 
+            console.log(email, passwordHash, selectRole, nombre, apellido, nacionalidad, dni, sexo, phoneNumber,
+                direccion, localidad, codigoPostal, tipoPlan, tipoSuscripcion, cantidadClasesMes, clasesPendiente);
 
             $.ajax({
                 type: "POST",
                 url: action,
-                data: {email,passwordHash,selectRole},
+                data: {email,passwordHash,selectRole,nombre,apellido,nacionalidad, dni,sexo,phoneNumber,direccion,localidad,codigoPostal,tipoPlan,tipoSuscripcion,cantidadClasesMes,clasesPendiente },
                 success: function (response) {
                     if (response === "Save") {
 
