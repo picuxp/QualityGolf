@@ -77,7 +77,7 @@ function mostrarUsuario(response) {
         $('input[name=Direccion]').val(val.direccion);
         $('input[name=Localidad]').val(val.localidad);
         $('input[name=CodigoPostal]').val(val.codigoPostal);
-        $('input[name=TipoPLan]').val(val.tipoPLan);
+        $('input[name=TipoPlan]').val(val.tipoPlan);
         $('input[name=TipoSuscripcion]').val(val.tipoSuscripcion);
         $('input[name=CantidadClasesMes]').val(val.cantidadClasesMes);
         $('input[name=ClasesPendiente]').val(val.clasesPendiente);
@@ -137,6 +137,20 @@ function editarUsuario(action) {
     role = document.getElementById('Select');
     selectRole = role.options[role.selectedIndex].text;
 
+    nombre = $('input[name=Nombre]')[0].value;
+    apellido = $('input[name=Apellido]')[0].value;
+    nacionalidad = $('input[name=Nacionalidad]')[0].value;
+    dni = $('input[name=Dni]')[0].value;
+    sexo = document.getElementById('Sexo').options[document.getElementById('Sexo').selectedIndex].text;
+    phoneNumber = $('input[name=PhoneNumber]')[0].value;
+    direccion = $('input[name=Direccion]')[0].value;
+    localidad = $('input[name=Localidad]')[0].value;
+    codigoPostal = $('input[name=CodigoPostal]')[0].value;
+    //tipoPlan = document.getElementById('TipoPLanNuevo');
+    tipoPlan = document.getElementById('TipoPlan').options[document.getElementById('TipoPlan').selectedIndex].text;
+    //tipoSuscripcion = document.getElementById('TipoSuscripcionNuevo');
+    tipoSuscripcion = document.getElementById('TipoSuscripcion').options[document.getElementById('TipoSuscripcion').selectedIndex].text;
+
     
 
     $.each(items, function (index, val) {
@@ -163,7 +177,8 @@ function editarUsuario(action) {
         data: {
             id, userName, email, phoneNumber, accessFailedCount, concurrentStamp, emailConfirmed, lockoutEnabled,
             lockoutEnd, normalizedEmail, normalizedUserName, passwordHash, phoneNumberConfirmed, securityStamp,
-            twoFactorEneable, selectRole
+            twoFactorEneable, selectRole, tipoSuscripcion, tipoPlan, codigoPostal, localidad, direccion, sexo, dni,
+            nacionalidad, apellido, nombre
         },
         success: function (response) { 
 
@@ -228,7 +243,7 @@ function crearUsuario(action) {
     localidad = $('input[name=LocalidadNuevo]')[0].value;
     codigoPostal = $('input[name=CodigoPostalNuevo]')[0].value;
     //tipoPlan = document.getElementById('TipoPLanNuevo');
-    tipoPlan = document.getElementById('TipoPLanNuevo').options[document.getElementById('TipoPLanNuevo').selectedIndex].text;
+    tipoPlan = document.getElementById('TipoPlanNuevo').options[document.getElementById('TipoPlanNuevo').selectedIndex].text;
     //tipoSuscripcion = document.getElementById('TipoSuscripcionNuevo');
     tipoSuscripcion = document.getElementById('TipoSuscripcionNuevo').options[document.getElementById('TipoSuscripcionNuevo').selectedIndex].text;
     cantidadClasesMes = 8;

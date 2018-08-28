@@ -120,7 +120,9 @@ namespace QualityGolf.Controllers
         public async Task<string> EditUsuario(string id, string userName, string email, string phoneNumber,
             int accessFailedCount, string concurrencyStamp, bool emailConfirmed, bool lockoutEnabled,
             DateTimeOffset lockoutEnd, string normalizedEmail, string normalizedUserName, string passwordHash,
-            bool phoneNumberConfirmed, string securityStamp, bool twoFactorEneable, string selectRole, ApplicationUser applicationUser)
+            bool phoneNumberConfirmed, string securityStamp, bool twoFactorEneable, string selectRole, string tipoSuscripcion, 
+            string tipoPlan, string codigoPostal, string localidad, string direccion, string sexo, string dni,
+            string nacionalidad, string apellido, string nombre, ApplicationUser applicationUser)
         {
             var resp = "";
             try
@@ -141,7 +143,17 @@ namespace QualityGolf.Controllers
                     SecurityStamp = securityStamp,
                     TwoFactorEnabled = twoFactorEneable,
                     AccessFailedCount = accessFailedCount,
-                    ConcurrencyStamp = concurrencyStamp
+                    ConcurrencyStamp = concurrencyStamp,
+                    TipoSuscripcion = tipoSuscripcion,
+                    TipoPlan = tipoPlan,
+                    CodigoPostal = codigoPostal,
+                    Localidad = localidad,
+                    Direccion = direccion,
+                    Sexo = sexo,
+                    Dni = dni,
+                    Nacionalidad = nacionalidad,
+                    Apellido = apellido,
+                    Nombre = nombre
 
 
                 };
