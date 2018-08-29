@@ -89,116 +89,120 @@
             <div class="modal-body">
 
                 <form>
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" name="Id" id="Id" />
-                    <div class="form-group">
-                        <label for="UserName" class="control-label">Usuario</label>
-                        <input readonly name="UserName" id="UserName" class="form-control" />
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="Email" class="control-label">Email</label>
-                        <input name="Email" id="Email" class="form-control" />
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="Roles" class="control-label">Roles</label>
-                        <select name="Select" id="Select" class="form-control" onclick="getRoles('Usuarios/GetRoles');">
-                            <option value="0"> Seleccione un rol</option>
+                    <div class="row">
 
-                        </select>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" name="Id" id="Id" />
+                        <div class="form-group col-sm-4">
+                            <label for="UserName" class="control-label">Usuario</label>
+                            <input readonly name="UserName" id="UserName" class="form-control" />
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label for="Email" class="control-label">Email</label>
+                            <input name="Email" id="Email" class="form-control" />
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label for="Roles" class="control-label">Roles</label>
+                            <select name="Select" id="Select" class="form-control" onclick="getRoles('Usuarios/GetRoles');">
+                                <option value="0"> Seleccione un rol</option>
+
+                            </select>
+                        </div>
+
                     </div>
 
-                    <div class="form-group">
-                        <label for="Nombre" class="control-label">Nombre</label>
-                        <input name="Nombre" id="Nombre" class="form-control" />
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="Apellido" class="control-label">Apellido</label>
-                        <input name="Apellido" id="Apellido" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label for="Nacionalidad" class="control-label">Nacionalidad</label>
-                        <input name="Nacionalidad" id="Nacionalidad" class="form-control" />
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="Dni" class="control-label">DNI</label>
-                        <input name="Dni" id="Dni" class="form-control" />
-                    </div>
-                    <!--
-                    <div class="form-group">
-                        <label for="Sexo" class="control-label">Sexo</label>
-                        <input name="Sexo" id="Sexo" class="form-control" />
-                    </div>
-                    -->
-                    <div class="form-group">
-                        <label for="Sexo" class="control-label">Sexo</label>
-                        <select name="Sexo" id="Sexo" class="form-control">
-                            <option>Masculino</option>
-                            <option>Femenino</option>
-                            <option>Otro</option>
-                        </select>
-                    </div>
-                    
+                    <div class="row">
 
-                    
-                    <div class="form-group">
-                        <label for="PhoneNumber" class="control-label">Teléfono</label>
-                        <input name="PhoneNumber" id="PhoneNumber" class="form-control" />
+                        <div class="form-group col-sm-6">
+                            <label for="Nombre" class="control-label">Nombre</label>
+                            <input name="Nombre" id="Nombre" class="form-control" />
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label for="Apellido" class="control-label">Apellido</label>
+                            <input name="Apellido" id="Apellido" class="form-control" />
+                        </div>
+
+
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="Direccion" class="control-label">Dirección</label>
-                        <input name="Direccion" id="Direccion" class="form-control" />
-                    </div>  
-                    
-                    <div class="form-group">
-                        <label for="Localidad" class="control-label">Localidad</label>
-                        <input name="Localidad" id="Localidad" class="form-control" />
+
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label for="Nacionalidad" class="control-label">Nacionalidad</label>
+                            <input name="Nacionalidad" id="Nacionalidad" class="form-control" />
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label for="Dni" class="control-label">DNI</label>
+                            <input name="Dni" id="Dni" class="form-control" />
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label for="Sexo" class="control-label">Sexo</label>
+                            <select name="Sexo" id="Sexo" class="form-control">
+                                <option>Masculino</option>
+                                <option>Femenino</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+
                     </div>
-                    
-                    <div class="form-group">
+
+                    <div class="row">
+
+                       
+
+                        <div class="form-group col-sm-4">
+                            <label for="Direccion" class="control-label">Dirección</label>
+                            <input name="Direccion" id="Direccion" class="form-control" />
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label for="Localidad" class="control-label">Localidad</label>
+                            <input name="Localidad" id="Localidad" class="form-control" />
+                        </div>
+
+                    <div class="form-group col-sm-2">
                         <label for="CodigoPostal" class="control-label">CP</label>
                         <input name="CodigoPostal" id="CodigoPostal" class="form-control" />
                     </div>
                     
-                    <!--
-                    <div class="form-group">
-                        <label for="TipoPlan" class="control-label">Plan</label>
-                        <input name="TipoPlan" id="TipoPlan" class="form-control" />
+                    <div class="form-group col-sm-2">
+                        <label for="PhoneNumber" class="control-label">Teléfono</label>
+                        <input name="PhoneNumber" id="PhoneNumber" class="form-control" />
                     </div>
-                    -->
-                    <div class="form-group">
-                        <label for="TipoPlan" class="control-label">Plan</label>
-                        <select name="TipoPlan" id="TipoPlan" class="form-control">
-                            <option>Platinum</option>
-                            <option>Gold</option>
-                            <option>Silver</option>
-                            <option>Step</option>
-                            <option>Carrera Mensual</option>
-                            <option>Intensivo</option>
-                            <option>Carrera Anual</option>
-                        </select>
+                    
                     </div>
-                <!--
-                <div class="form-group">
-                    <label for="TipoSuscripcion" class="control-label">Suscripción</label>
-                    <input name="TipoSuscripcion" id="TipoSuscripcion" class="form-control" />
-                </div>
-                -->
 
-                <div class="form-group">
-                        <label for="TipoSuscripcion" class="control-label">Tipo de Suscripción</label>
-                        <select name="TipoSuscripcion" id="TipoSuscripcion" class="form-control">
-                            <option>Anual</option>
-                            <option>Semestral</option>
-                            <option>Mensaul</option>
-                        </select>
+                    
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label for="TipoPlan" class="control-label">Plan</label>
+                            <select name="TipoPlan" id="TipoPlan" class="form-control">
+                                <option>Platinum</option>
+                                <option>Gold</option>
+                                <option>Silver</option>
+                                <option>Step</option>
+                                <option>Carrera Mensual</option>
+                                <option>Intensivo</option>
+                                <option>Carrera Anual</option>
+                            </select>
+                        </div>
+    
+
+                        <div class="form-group col-sm-4">
+                            <label for="TipoSuscripcion" class="control-label">Tipo de Suscripción</label>
+                            <select name="TipoSuscripcion" id="TipoSuscripcion" class="form-control">
+                                <option>Anual</option>
+                                <option>Semestral</option>
+                                <option>Mensaul</option>
+                            </select>
+                        </div>
+                        
                     </div>
-                    
-                    
+
 
                 </form>
 
@@ -215,7 +219,7 @@
 
 <!-- Modal detalles -->
 <div class="modal fade" id="modalDetalle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color: lightblue; text-align: center; color: white">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -355,110 +359,127 @@
             <div class="modal-body">
 
                 <form>
+                    <div class="row">
+
+                        <div class="form-group col-sm-3">
+                            <label for="Roles" class="control-label">Roles</label>
+                            <select name="SelectNuevo" id="SelectNuevo" class="form-control" onclick="getRoles('Usuarios/GetRoles');">
+                                <option value="0"> Seleccione un rol</option>
+
+                            </select>
+                        </div>
 
 
-                    <div class="form-group">
-                        <label for="Roles" class="control-label">Roles</label>
-                        <select name="SelectNuevo" id="SelectNuevo" class="form-control" onclick="getRoles('Usuarios/GetRoles');">
-                            <option value="0"> Seleccione un rol</option>
+                        <div class="form-group col-sm-6">
+                            <label for="EmailNuevo" class="control-label">Email</label>
+                            <input name="EmailNuevo" id="EmailNuevo" class="form-control" />
+                        </div>
 
-                        </select>
-                    </div>
+                        <div class="form-group col-sm-3">
+                            <label for="PasswordHashNuevo" class="control-label">password</label>
+                            <input type="password" name="PasswordHashNuevo" id="PasswordHashNuevo" class="form-control" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="EmailNuevo" class="control-label">Email</label>
-                        <input name="EmailNuevo" id="EmailNuevo" class="form-control" />
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="NombreNuevo" class="control-label">Nombre</label>
-                        <input name="NombreNuevo" id="NombreNuevo" class="form-control" />
                     </div>
 
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label for="NombreNuevo" class="control-label">Nombre</label>
+                            <input name="NombreNuevo" id="NombreNuevo" class="form-control" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="ApellidoNuevo" class="control-label">Apellido</label>
-                        <input name="ApellidoNuevo" id="ApellidoNuevo" class="form-control" />
-                    </div>
 
-
-                    <div class="form-group">
-                        <label for="NacionalidadNuevo" class="control-label">Nacionalidad</label>
-                        <input name="NacionalidadNuevo" id="NacionalidadNuevo" class="form-control" />
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="DniNuevo" class="control-label">DNI</label>
-                        <input type="number" name="DniNuevo" id="DniNuevo" class="form-control" />
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="SexoNuevo" class="control-label">Sexo</label>
-                        <select name="SexoNuevo" id="SexoNuevo" class="form-control">
-                            <option>Masculino</option>
-                            <option>Femenino</option>
-                            <option>Otro</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="PhoneNumberNuevo" class="control-label">Teléfono</label>
-                        <input name="PhoneNumberNuevo" id="PhoneNumberNuevo" class="form-control" />
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="DireccionNuevo" class="control-label">Dirección</label>
-                        <input name="DireccionNuevo" id="DiereccionNuevo" class="form-control" />
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="LocalidadNuevo" class="control-label">Localidad</label>
-                        <input name="LocalidadNuevo" id="LocalidadNuevo" class="form-control" />
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="CodigoPostalNuevo" class="control-label">CP</label>
-                        <input name="CodigoPostalNuevo" id="CodigoPostalNuevo" class="form-control" />
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="TipoPlanNuevo" class="control-label">Plan</label>
-                        <select name="TipoPlanNuevo" id="TipoPlanNuevo" class="form-control">
-                            <option>Platinum</option>
-                            <option>Gold</option>
-                            <option>Silver</option>
-                            <option>Step</option>
-                            <option>Carrera Mensual</option>
-                            <option>Intensivo</option>
-                            <option>Carrera Anual</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="TipoSuscripcionNuevo" class="control-label">Suscripción</label>
-                        <select name="TipoSuscripcionNuevo" id="TipoSuscripcionNuevo" class="form-control">
-                            <option>Anual</option>
-                            <option>Semestral</option>
-                            <option>Mensaul</option>
-                        </select>
+                        <div class="form-group col-sm-6">
+                            <label for="ApellidoNuevo" class="control-label">Apellido</label>
+                            <input name="ApellidoNuevo" id="ApellidoNuevo" class="form-control" />
+                        </div>
                     </div>
 
-                    
-                    <div class="form-group">
-                        <label for="PasswordHashNuevo" class="control-label">password</label>
-                        <input type="password" name="PasswordHashNuevo" id="PasswordHashNuevo" class="form-control" />
-                    </div>
-                    
-                    <div class="form-group">
-                        <p id="mensajeNuevo"></p>
+                    <div class="row">
+
+                        <div class="form-group col-sm-4">
+                            <label for="NacionalidadNuevo" class="control-label">Nacionalidad</label>
+                            <input name="NacionalidadNuevo" id="NacionalidadNuevo" class="form-control" />
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label for="DniNuevo" class="control-label">DNI</label>
+                            <input type="number" name="DniNuevo" id="DniNuevo" class="form-control" />
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label for="SexoNuevo" class="control-label">Sexo</label>
+                            <select name="SexoNuevo" id="SexoNuevo" class="form-control">
+                                <option>Masculino</option>
+                                <option>Femenino</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+
                     </div>
 
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label for="DireccionNuevo" class="control-label">Dirección</label>
+                            <input name="DireccionNuevo" id="DiereccionNuevo" class="form-control" />
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label for="LocalidadNuevo" class="control-label">Localidad</label>
+                            <input name="LocalidadNuevo" id="LocalidadNuevo" class="form-control" />
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label for="CodigoPostalNuevo" class="control-label">CP</label>
+                            <input name="CodigoPostalNuevo" id="CodigoPostalNuevo" class="form-control" />
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label for="PhoneNumberNuevo" class="control-label">Teléfono</label>
+                            <input name="PhoneNumberNuevo" id="PhoneNumberNuevo" class="form-control" />
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label for="TipoPlanNuevo" class="control-label">Plan</label>
+                            <select name="TipoPlanNuevo" id="TipoPlanNuevo" class="form-control">
+                                <option>Platinum</option>
+                                <option>Gold</option>
+                                <option>Silver</option>
+                                <option>Step</option>
+                                <option>Carrera Mensual</option>
+                                <option>Intensivo</option>
+                                <option>Carrera Anual</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label for="TipoSuscripcionNuevo" class="control-label">Suscripción</label>
+                            <select name="TipoSuscripcionNuevo" id="TipoSuscripcionNuevo" class="form-control">
+                                <option>Anual</option>
+                                <option>Semestral</option>
+                                <option>Mensaul</option>
+                            </select>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+
+                        <div class="form-group col-lg-12">
+                            <p id="mensajeNuevo" style="color: red"></p>
+                        </div>
+                        
+                    </div>
                 </form>
 
 
 
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-primary" onclick="crearUsuario('Usuarios/CreateUsuario')">Registrar</button>
