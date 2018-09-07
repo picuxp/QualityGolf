@@ -5,6 +5,13 @@
     <UserSecretsId>aspnet-QualityGolf-1F789441-89B9-4DB3-9117-61B2741F7460</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20180907144639_[migracionPLanesxUsuarios].cs" />
+    <Compile Remove="Data\Migrations\20180907144639_[migracionPLanesxUsuarios].Designer.cs" />
+    <Compile Remove="Data\Migrations\20180907145627_[migracionPLanesxUsuarios2].cs" />
+    <Compile Remove="Data\Migrations\20180907145627_[migracionPLanesxUsuarios2].Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />

@@ -1,0 +1,56 @@
+﻿@model QualityGolf.Models.Planes
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Planes</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PlanesID" />
+            <div class="form-group">
+                <label asp-for="Tipo" class="control-label"></label>
+                <input asp-for="Tipo" class="form-control" />
+                <span asp-validation-for="Tipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Suscripcion" class="control-label"></label>
+                <input asp-for="Suscripcion" class="form-control" />
+                <span asp-validation-for="Suscripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CantidadClases" class="control-label"></label>
+                <input asp-for="CantidadClases" class="form-control" />
+                <span asp-validation-for="CantidadClases" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClasesMes" class="control-label"></label>
+                <input asp-for="ClasesMes" class="form-control" />
+                <span asp-validation-for="ClasesMes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Estado" /> @Html.DisplayNameFor(model => model.Estado)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

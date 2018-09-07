@@ -38,6 +38,9 @@ namespace QualityGolf.Models
         public byte CantidadClasesMes { get; set; }
         public byte ClasesPendiente { set; get; }
 
+        public int PlanesID { get; set; }
+
+
 
 
     }

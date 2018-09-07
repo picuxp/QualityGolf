@@ -24,5 +24,7 @@ namespace QualityGolf.Data
         }
 
         public DbSet<QualityGolf.Models.ApplicationUser> ApplicationUser { get; set; }
+
+        public DbSet<QualityGolf.Models.Planes> Planes { get; set; }
     }
 }

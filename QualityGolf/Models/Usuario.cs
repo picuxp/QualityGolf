@@ -54,6 +54,9 @@ namespace QualityGolf.Models
 
         public string Role { get; set; }
         public string RoleId { set; get; }
+
+        public int PlanesID { get; set; }
         
+
     }
 }
