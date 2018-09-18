@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using QualityGolf.Data;
 using QualityGolf.Models;
+using QualityGolf.ViewModels;
 
 namespace QualityGolf.Controllers
 {
@@ -56,7 +57,14 @@ namespace QualityGolf.Controllers
                 } );
             }
 
-            return View(usuario.ToList());
+            var viewModelPlan = new PlanParaUsuarioNuevo()
+            {
+                Planes = _context.Planes.ToList(),
+                Usuarios = usuario.ToList()
+            };
+
+            
+            return View( viewModelPlan);
             //return View(await _context.ApplicationUser.ToListAsync());
         }
 
