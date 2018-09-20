@@ -43,6 +43,50 @@ namespace QualityGolf.Controllers
             return View(planes);
         }
 
+        public async Task<List<SelectListItem>> GetPlanes()
+        {
+            var planes = await _context.Planes.ToListAsync();
+
+            List<SelectListItem> planesLista = new List<SelectListItem>();
+
+            foreach (var Data in planes)
+            {
+
+                planesLista.Add(new SelectListItem()
+                {
+                    Value = Data.PlanesID.ToString(),
+                    Text = Data.Tipo
+                });
+            }
+            
+            return planesLista;
+        }
+
+
+        public async Task<List<SelectListItem>> GetSuscripcion(string plan)
+        {
+            var planes = await _context.Planes.ToListAsync();
+
+            List<SelectListItem> suscripcionLista = new List<SelectListItem>();
+           
+            foreach (var Data in planes)
+            {
+                //if (Data.Tipo == plan)
+                {
+                    suscripcionLista.Add(new SelectListItem()
+                    {
+                        Value = Data.PlanesID.ToString(),
+                        Text = Data.Suscripcion
+                    });
+                }
+            }
+
+            return suscripcionLista;
+        }
+
+
+
+
         // GET: Planes/Create
         public IActionResult Create()
         {

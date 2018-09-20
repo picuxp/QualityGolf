@@ -19,6 +19,8 @@ function getUsuario(id,action){
 
 var items;
 var j = 0;
+var jp = 0;
+var jsus = 0; 
 
 var id;
 var userName;
@@ -59,6 +61,8 @@ var clasesPendiente;
 function mostrarUsuario(response) {
     items = response;
     j = 0;
+    jp = 0;
+    jsus = 0;
     for (var i = 0; i < 3; i++) {
         var x = document.getElementById('Select');
         x.remove(i);
@@ -117,7 +121,8 @@ function getRoles(action) {
         type: "POST",
         url: action,
         data: {},
-        success: function(response) {
+        success: function (response) {
+            console.log(response);
             if (j === 0) {
                 for (var i = 0; i < response.length; i++) {
                     document.getElementById('Select').options[i] = new Option(response[i].text, response[i].value);
@@ -128,6 +133,53 @@ function getRoles(action) {
         }
     });
 } 
+
+function getPlanes(action)
+{
+    $.ajax({
+        type: "POST",
+        url: action,
+        data: {},
+        success: function (response) {
+            console.log(response);
+            if (jp === 0) {
+                for (var i = 0; i < response.length; i++) {
+                    document.getElementById('TipoPlanNuevo').options[i] = new Option(response[i].text, response[i].value);
+                }
+                jp = 1;
+            }
+
+
+        }
+
+    });
+}
+
+function getSuscripcion(action) {
+
+    tipoPlan2 = document.getElementById('TipoPlanNuevo').options[document.getElementById('TipoPlanNuevo').selectedIndex].text;
+
+    console.log(tipoPlan2);
+
+    $.ajax({
+        type: "POST",
+        url: action,
+        data: {tipoPlan2},
+        success: function (response) {
+            console.log(response);
+            if (jsus === 0) {
+                for (var i = 0; i < response.length; i++) {
+                    document.getElementById('TipoSuscripcionNuevo').options[i] = new Option(response[i].text, response[i].value);
+                }
+                jsus = 1;
+            }
+
+
+        }
+
+    });
+}
+
 
 
 function editarUsuario(action) {

@@ -445,23 +445,17 @@
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="TipoPlanNuevo" class="control-label">Plan</label>
-                            <select name="TipoPlanNuevo" id="TipoPlanNuevo" class="form-control">
-                                <option>Platinum</option>
-                                <option>Gold</option>
-                                <option>Silver</option>
-                                <option>Step</option>
-                                <option>Carrera Mensual</option>
-                                <option>Intensivo</option>
-                                <option>Carrera Anual</option>
+                            <select name="TipoPlanNuevo" id="TipoPlanNuevo" class="form-control"  onclick="getPlanes('Planes/GetPlanes');">
+                                <option value="0">Seleccionar un Plan</option>
+                                
                             </select>
                         </div>
 
                         <div class="form-group col-sm-4">
                             <label for="TipoSuscripcionNuevo" class="control-label">Suscripción</label>
-                            <select name="TipoSuscripcionNuevo" id="TipoSuscripcionNuevo" class="form-control">
-                                <option>Anual</option>
-                                <option>Semestral</option>
-                                <option>Mensaul</option>
+                            <select name="TipoSuscripcionNuevo" id="TipoSuscripcionNuevo" class="form-control"  onclick="getSuscripcion('Planes/GetSuscripcion');">
+                                <option value="0">Seleccione</option>
+
                             </select>
                         </div>
 
