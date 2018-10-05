@@ -49,36 +49,62 @@ namespace QualityGolf.Controllers
 
             List<SelectListItem> planesLista = new List<SelectListItem>();
 
+            int encontroIt = 0;
+
             foreach (var Data in planes)
             {
 
-                planesLista.Add(new SelectListItem()
+                foreach (var p in planesLista)
                 {
-                    Value = Data.PlanesID.ToString(),
-                    Text = Data.Tipo
-                });
+                    if (p.Text == Data.Tipo)
+                    {
+                        encontroIt = 1;
+                    }
+                }
+
+                if (encontroIt == 0)
+                {
+                    planesLista.Add(new SelectListItem()
+                    {
+                        Value = Data.PlanesID.ToString(),
+                        Text = Data.Tipo
+                    });
+
+                }
+
+                encontroIt = 0;
             }
-            
+
             return planesLista;
+
         }
 
 
         public async Task<List<SelectListItem>> GetSuscripcion(string plan)
         {
+
+            
             var planes = await _context.Planes.ToListAsync();
 
             List<SelectListItem> suscripcionLista = new List<SelectListItem>();
-           
+
+            //suscripcionLista.Add(new SelectListItem()
+            //{
+            //    Value = "123",
+            //    Text = plan
+            //});
+
+
             foreach (var Data in planes)
             {
-                //if (Data.Tipo == plan)
-                {
+                //if (Data.Tipo == "Platinum")
+                //{
                     suscripcionLista.Add(new SelectListItem()
                     {
                         Value = Data.PlanesID.ToString(),
                         Text = Data.Suscripcion
                     });
-                }
+                //}
             }
 
             return suscripcionLista;
